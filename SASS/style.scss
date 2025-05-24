@@ -1,0 +1,473 @@
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: #3498db;
+$accent-color: black;
+$white: white;
+$gray: gray;
+
+$mobile-breakpoint: 768px;
+
+// Mixins para media queries
+@mixin mobile {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+// Reset y estilos base
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: $accent-color;
+  background-color: $white;
+}
+
+// Header
+header {
+  width: 100%;
+  background: linear-gradient(to right, $primary-color, $secondary-color);
+  border-bottom: 2px solid $accent-color;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .logo {
+    margin-left: 2rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: $accent-color;
+
+    img {
+      height: 8rem;
+      width: auto;
+      object-fit: contain;
+      margin-left: 1rem;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      margin-right: 2rem;
+      padding: 0;
+      display: flex;
+
+      li {
+        margin: 0 1rem;
+
+        a {
+          color: $accent-color;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// Botón de menú móvil
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  cursor: pointer;
+  margin-right: 2rem;
+  color: $white;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.nav-menu {
+  transition: all 0.3s ease;
+
+  @include mobile {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+    flex-direction: column;
+    z-index: 999;
+
+    &.active {
+      left: 0;
+    }
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+
+      li {
+        margin: 1.5rem 0;
+        text-align: center;
+
+        a {
+          color: $white;
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .logo img {
+      height: 6rem;
+    }
+  }
+}
+
+// Hero Image
+.hero-image {
+  width: 100%;
+  height: 70rem;
+  background-image: url("../img/paisaje1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 6rem;
+  border: 1px solid $accent-color;
+}
+
+// Welcome Text
+.welcome-text {
+  padding: 2rem;
+  max-width: 60rem;
+  margin: 2rem auto;
+  border: 1px solid $accent-color;
+  background-color: $white;
+}
+
+// CTA Button
+.cta-button {
+  padding: 1rem 2rem;
+  background-color: $white;
+  color: $accent-color;
+  text-decoration: none;
+  border: 1px solid $accent-color;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  display: inline-block;
+}
+
+// About Section
+.about-container {
+  margin-top: 10rem;
+  width: 80%;
+  max-width: 100rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "title title"
+    "image bio"
+    "image certs";
+  gap: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  h1 {
+    grid-area: title;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+
+  .profile-image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    img {
+      width: 100%;
+      max-width: 30rem;
+      height: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid $accent-color;
+    }
+  }
+
+  .bio-section, .certifications-section {
+    border: 1px solid $accent-color;
+    padding: 2rem;
+    background-color: $white;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "image"
+      "bio"
+      "certs";
+
+    .profile-image {
+      justify-content: center;
+    }
+
+    .profile-image img {
+      max-width: 20rem;
+    }
+  }
+}
+
+// Certifications
+.certifications-section {
+  ul {
+    padding-left: 2rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Excursions
+.excursion-list {
+  h1 {
+    width: 100%;
+    text-align: center;
+     margin-top: 5rem;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  margin: 10rem auto 5rem;
+  width: 80%;
+  max-width: 90rem;
+
+  .excursion-card {
+    border: 1px solid $accent-color;
+    background-color: $white;
+    padding: 2rem;
+    flex: 1 1 30rem;
+    max-width: 35rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+
+    .excursion-image {
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid $accent-color;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: $accent-color;
+      color: $white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      margin-top: auto;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $gray;
+      }
+    }
+  }
+}
+
+// Detalles
+.detalle-container {
+  width: 80%;
+  max-width: 90rem;
+  margin: 10rem auto 5rem;
+  padding: 2rem;
+  background-color: $white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 2rem;
+  }
+
+  .detalle-info {
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid $accent-color;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li::before {
+        content: "✔️";
+        margin-right: 0.8rem;
+      }
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0.5rem 0;
+    }
+  }
+
+  .detalle-contacto {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 2rem;
+
+    a {
+      color: $accent-color;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 2px solid $accent-color;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: $gray;
+        border-bottom: 2px solid $gray;
+      }
+    }
+  }
+}
+
+// Contacto
+.contact-container {
+  width: 95%;
+  max-width: 120rem;
+  margin: 5rem auto;
+  text-align: center;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.contact-form {
+  border: 1px solid $accent-color;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
+
+  @media (min-width: 992px) {
+    padding: 4rem;
+  }
+
+  .form-group {
+    margin-bottom: 3rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid $accent-color;
+    border-radius: 0.5rem;
+    background-color: $white;
+    font-size: 1.6rem;
+  }
+
+  textarea {
+    height: 20rem;
+    resize: vertical;
+  }
+
+  .submit-btn {
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+  }
+
+  .submit-btn:hover {
+    background-color: $white;
+    color: $accent-color;
+  }
+
+  .contact-info {
+    padding: 3rem;
+    font-size: 1.6rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: $accent-color;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  width: 100%;
+  background-color: $white;
+  border-top: 2px solid $accent-color;
+  padding: 2rem 0;
+  margin-top: 5rem;
+  text-align: center;
+
+  a {
+    color: $accent-color;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+}
