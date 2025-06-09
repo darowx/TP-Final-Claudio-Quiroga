@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excursiones</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Lista completa de excursiones guiadas disponibles en El Chaltén. Fitz Roy, Laguna de los Tres, Glaciar Torre y más opciones para disfrutar del senderismo patagónico.">
+    <meta name="keywords" content="excursiones El Chaltén, tours guiados, senderismo Argentina, Monte Fitz Roy, Laguna de los Tres, Glaciar Torre, turismo aventura">
+    <meta name="author" content="Claudio Dario Quiroga">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Excursiones en El Chaltén | Guía Profesional">
+    <meta property="og:description" content="Lista completa de excursiones guiadas disponibles en El Chaltén. Fitz Roy, Laguna de los Tres, Glaciar Torre y más opciones para disfrutar del senderismo patagónico.">
+    <meta property="og:image" content="../img/paisaje1.jpg">
+    <meta property="og:url" content="https://tusitio.com/pages/excursiones.html"> 
+    <meta property="og:type" content="website">
+
+    <title>Excursiones en El Chaltén | Guía Profesional</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,7 +24,8 @@
         <div class="logo">
             <img src="../img/logo.png" alt="Logo de la página">
         </div>
-        <nav>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav class="nav-menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="excursiones.html">Excursiones</a></li>
@@ -24,32 +38,28 @@
 
     <main class="excursion-list">
         <h1>Excursiones en El Chaltén</h1>
-
         <div class="excursion-card">
             <img src="../img/fitzroy.jpg" alt="Fitz Roy" class="excursion-image">  
             <h2>Excursión al Fitz Roy</h2>
             <p>Una caminata desafiante hacia el icónico Monte Fitz Roy, con vistas espectaculares.</p>
             <a href="detalle.html">Ver más</a>
         </div>
-
         <div class="excursion-card">
             <img src="../img/laguna-tres.jpg" alt="Laguna de los Tres" class="excursion-image">
             <h2>Laguna de los Tres</h2>
             <p>Recorrido hacia la Laguna de los Tres, uno de los miradores más impresionantes.</p>
             <a href="detalle.html">Ver más</a>
         </div>
-
         <div class="excursion-card">
             <img src="../img/glaciar-torre.jpg" alt="Glaciar Torre" class="excursion-image">
             <h2>Glaciar Torre</h2>
             <p>Explora el Glaciar Torre y sus alrededores en una excursión de dificultad media.</p>
             <a href="detalle.html">Ver más</a>
         </div>
-
         <div class="excursion-card">
             <img src="../img/excursion4.jpg" alt="Laguna Capri" class="excursion-image">
             <h2>Laguna Capri</h2>
-            <p>Caminata te lleva en menos de dos horas hasta una laguna de aguas azules.</p>
+            <p>Caminata que te lleva en menos de dos horas hasta una laguna de aguas azules.</p>
             <a href="detalle.html">Ver más</a>
         </div>
     </main>
@@ -57,6 +67,17 @@
     <footer>
         <p>© 2024 - Guía de Excursiones en El Chaltén</p>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
-

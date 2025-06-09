@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Soy Claudio Dario Quiroga, guía profesional de senderismo en El Chaltén con más de 10 años de experiencia. Conoce mi historia, certificaciones y pasión por la Patagonia.">
+    <meta name="keywords" content="sobre mí, guía El Chaltén, senderismo Patagonia, Claudio Dario Quiroga, excursiones profesionales, montañismo Argentina">
+    <meta name="author" content="Claudio Dario Quiroga">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Sobre Mí | Guía de Senderismo El Chaltén">
+    <meta property="og:description" content="Soy Claudio Dario Quiroga, guía profesional de senderismo en El Chaltén con más de 10 años de experiencia. Conoce mi historia, certificaciones y pasión por la Patagonia.">
+    <meta property="og:image" content="../img/persona.jpg">
+    <meta property="og:url" content="https://tusitio.com/pages/sobre.html"> 
+    <meta property="og:type" content="website">
+
+    <title>Sobre Mí | Guía de Senderismo El Chaltén</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,7 +24,8 @@
         <div class="logo">
             <img src="../img/logo.png" alt="Logo de la página">
         </div>
-        <nav>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav class="nav-menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="excursiones.html">Excursiones</a></li>
@@ -24,17 +38,14 @@
 
     <main class="about-container">
         <h1>Sobre Mí</h1>
-        
         <div class="profile-image">
             <img src="../img/persona.jpg" alt="Foto del guía">
         </div>
-        
         <section class="bio-section">
             <h2>Mi Historia</h2>
             <p>Soy un guía profesional de senderismo con más de 10 años de experiencia en la región de El Chaltén. Nacido y criado en la Patagonia, mi pasión por las montañas comenzó desde muy joven. He recorrido cada rincón de estos paisajes y conozco los secretos mejor guardados de la zona.</p>
             <p>Mi objetivo es compartir no solo los senderos, sino también la historia, geología y cultura de este lugar único en el mundo, ofreciendo experiencias seguras y memorables.</p>
         </section>
-        
         <section class="certifications-section">
             <h2>Certificaciones y Experiencia</h2>
             <ul>
@@ -50,5 +61,17 @@
     <footer>
         <p>© 2024 - Guía de Excursiones en El Chaltén</p>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

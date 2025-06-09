@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Senderismo en El Chaltén</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Guía profesional de senderismo en El Chaltén. Ofrezco excursiones guiadas por los mejores recorridos del Parque Nacional Los Glaciares.">
+    <meta name="keywords" content="senderismo, guía turístico, El Chaltén, excursiones, Fitz Roy, Laguna de los Tres, Glaciar Torre, turismo aventura, Argentina">
+    <meta name="author" content="Claudio Dario Quiroga">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Guía de Senderismo en El Chaltén | Claudio Dario Quiroga">
+    <meta property="og:description" content="Descubre las mejores excursiones guiadas en El Chaltén. Rutas, detalles y contacto con un guía profesional.">
+    <meta property="og:image" content="img/paisaje1.jpg">
+    <meta property="og:url" content="https://tusitio.com/index.html"> 
+    <meta property="og:type" content="website">
+
+    <title>Guía de Senderismo en El Chaltén | Claudio Dario Quiroga</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logo.png" alt="Logo de la página">
+            <img src="../img/logo.png" alt="Logo de la página">
         </div>
         <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         <nav class="nav-menu">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="pages/excursiones.html">Excursiones</a></li>
-                <li><a href="pages/detalle.html">Detalle</a></li>
-                <li><a href="pages/sobre.html">Sobre Mí</a></li>
-                <li><a href="pages/contacto.html">Contacto</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./pages/excursiones.html">Excursiones</a></li>
+                <li><a href="./pages/detalle.html">Detalles</a></li>
+                <li><a href="./pages/sobre.html">Sobre Mí</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -41,12 +54,11 @@
         </p>
     </footer>
 
-    <script>  /*investigando use este metodo para achicar el menu en movil, usa javascript que aun no vimos pero lo coloqué leyendo un poco del tema, solo lo pongo en index y en resto hago que se comprima el menu*/
+    <script>
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
-        
-        // Cerrar el menú al hacer clic en un enlace (opcional)
+
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelector('.nav-menu').classList.remove('active');
@@ -55,4 +67,3 @@
     </script>
 </body>
 </html>
-

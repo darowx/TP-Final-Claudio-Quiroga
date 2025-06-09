@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de la Excursión</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Conoce qué incluyen y no incluyen nuestras excursiones guiadas en El Chaltén. Información detallada sobre servicios, equipamiento y requisitos.">
+    <meta name="keywords" content="detalles excursiones, qué incluye tour El Chaltén, información tours guiados, senderismo Argentina">
+    <meta name="author" content="Claudio Dario Quiroga">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Detalles de las Excursiones | Guía de Senderismo El Chaltén">
+    <meta property="og:description" content="Conoce qué incluyen y no incluyen nuestras excursiones guiadas en El Chaltén. Información detallada sobre servicios, equipamiento y requisitos.">
+    <meta property="og:image" content="../img/paisaje1.jpg">
+    <meta property="og:url" content="https://tusitio.com/pages/detalle.html"> 
+    <meta property="og:type" content="website">
+
+    <title>Detalles de las Excursiones | Guía de Senderismo El Chaltén</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,7 +24,8 @@
         <div class="logo">
             <img src="../img/logo.png" alt="Logo de la página">
         </div>
-        <nav>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav class="nav-menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="excursiones.html">Excursiones</a></li>
@@ -24,7 +38,6 @@
 
     <main class="detalle-container">
         <h1>Detalles de las Excursiones</h1>
-
         <section class="detalle-info">
             <h2>¿Qué incluyen los tours?</h2>
             <ul>
@@ -35,7 +48,6 @@
                 <li>Fotos grupales tomadas por el guía</li>
             </ul>
         </section>
-
         <section class="detalle-info">
             <h2>¿Qué no incluyen?</h2>
             <ul>
@@ -45,7 +57,6 @@
                 <li>Entradas a parques nacionales (si aplican)</li>
             </ul>
         </section>
-
         <section class="detalle-info">
             <h2>Información Adicional</h2>
             <p><strong>Edad mínima:</strong> 10 años</p>
@@ -54,7 +65,6 @@
             <p><strong>Tamaño del grupo:</strong> Desde 1 hasta 10 personas</p>
             <p><strong>Disponibilidad y precios:</strong> Se deben consultar previamente.</p>
         </section>
-
         <section class="detalle-contacto">
             <p>Para más información o reservas, <a href="contacto.html">contáctame aquí</a>.</p>
         </section>
@@ -63,5 +73,17 @@
     <footer>
         <p>© 2024 - Guía de Excursiones en El Chaltén</p>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

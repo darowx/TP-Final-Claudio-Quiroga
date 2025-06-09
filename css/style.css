@@ -61,8 +61,7 @@ header nav ul li a {
   text-decoration: none;
   font-weight: bold;
 }
-
-.menu-toggle {
+header .menu-toggle {
   display: none;
   background: none;
   border: none;
@@ -72,16 +71,15 @@ header nav ul li a {
   color: white;
 }
 @media (max-width: 768px) {
-  .menu-toggle {
+  header .menu-toggle {
     display: block;
   }
 }
-
-.nav-menu {
+header .nav-menu {
   transition: all 0.3s ease;
 }
 @media (max-width: 768px) {
-  .nav-menu {
+  header .nav-menu {
     position: fixed;
     top: 80px;
     left: -100%;
@@ -91,23 +89,23 @@ header nav ul li a {
     flex-direction: column;
     z-index: 999;
   }
-  .nav-menu.active {
+  header .nav-menu.active {
     left: 0;
   }
-  .nav-menu ul {
+  header .nav-menu ul {
     flex-direction: column;
     width: 100%;
     margin: 0;
   }
-  .nav-menu ul li {
+  header .nav-menu ul li {
     margin: 1.5rem 0;
     text-align: center;
   }
-  .nav-menu ul li a {
+  header .nav-menu ul li a {
     color: white;
     font-size: 1.8rem;
   }
-  .nav-menu .logo img {
+  header .nav-menu .logo img {
     height: 6rem;
   }
 }
@@ -175,7 +173,8 @@ header nav ul li a {
   object-fit: cover;
   border: 2px solid black;
 }
-.about-container .bio-section, .about-container .certifications-section {
+.about-container .bio-section,
+.about-container .certifications-section {
   border: 1px solid black;
   padding: 2rem;
   background-color: white;
@@ -345,7 +344,8 @@ header nav ul li a {
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding: 1.5rem;
   border: 1px solid black;

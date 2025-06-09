@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Contáctame para reservar excursiones guiadas en El Chaltén. Escríbeme por email, teléfono o redes sociales.">
+    <meta name="keywords" content="contacto guía El Chaltén, reservas excursiones, contacto senderismo, tours guiados Argentina">
+    <meta name="author" content="Claudio Dario Quiroga">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Contacto | Guía de Senderismo en El Chaltén">
+    <meta property="og:description" content="Contáctame para reservar excursiones guiadas en El Chaltén. Escríbeme por email, teléfono o redes sociales.">
+    <meta property="og:image" content="../img/paisaje1.jpg">
+    <meta property="og:url" content="https://tusitio.com/pages/contacto.html"> 
+    <meta property="og:type" content="website">
+
+    <title>Contacto | Guía de Senderismo en El Chaltén</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,7 +24,8 @@
         <div class="logo">
             <img src="../img/logo.png" alt="Logo de la página">
         </div>
-        <nav>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav class="nav-menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="excursiones.html">Excursiones</a></li>
@@ -25,28 +39,23 @@
     <main>
         <div class="contact-container">
             <h1>Contacto</h1>
-
             <div class="contact-form">
                 <form>
                     <div class="form-group">
                         <label for="name">Nombre:</label>
                         <input type="text" id="name" placeholder="Tu nombre completo">
                     </div>
-
                     <div class="form-group">
                         <label for="email">Correo electrónico:</label>
                         <input type="email" id="email" placeholder="tu@email.com">
                     </div>
-
                     <div class="form-group">
                         <label for="message">Mensaje:</label>
                         <textarea id="message" placeholder="Escribe tu mensaje aquí..."></textarea>
                     </div>
-
                     <button type="submit" class="submit-btn">Enviar Mensaje</button>
                 </form>
             </div>
-
             <div class="contact-info">
                 <h2>Otros medios de contacto</h2>
                 <p><strong>Email:</strong> info@misenderos.com</p>
@@ -63,5 +72,17 @@
     <footer>
         <p>© 2024 - Guía de Excursiones en El Chaltén</p>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
