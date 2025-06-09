@@ -6,7 +6,7 @@ $white: white;
 $gray: gray;
 $mobile-breakpoint: 768px;
 
-// Mixin para media query móvil
+// Mixin para media queries móviles
 @mixin mobile {
   @media (max-width: $mobile-breakpoint) {
     @content;
@@ -19,10 +19,16 @@ $mobile-breakpoint: 768px;
   padding: 0;
   box-sizing: inherit;
 }
+
 html {
-  font-size: 62.5%; // 1rem = 10px
+  font-size: 62.5%; // 1rem = 10px en desktop
   box-sizing: border-box;
+
+  @include mobile {
+    font-size: 100%; // 1rem = 16px en móvil
+  }
 }
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -33,6 +39,32 @@ body {
   text-align: center;
   color: $accent-color;
   background-color: $white;
+}
+
+// Tamaños de fuentes legibles
+:where(h1) {
+  font-size: 2rem; // ~32px
+  margin-block: 0.67em;
+}
+
+:where(h2) {
+  font-size: 1.8rem; // ~28px
+}
+
+:where(h3) {
+  font-size: 1.6rem; // ~24px
+}
+
+:where(h4) {
+  font-size: 1.4rem; // ~20px
+}
+
+:where(h5) {
+  font-size: 1.2rem; // ~18px
+}
+
+:where(h6) {
+  font-size: 1rem; // ~16px
 }
 
 // Header
@@ -81,60 +113,58 @@ header {
       }
     }
   }
+}
 
-  // Menú móvil
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2.4rem;
-    cursor: pointer;
-    margin-right: 2rem;
-    color: $white;
-  }
+// Menú móvil
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  cursor: pointer;
+  margin-right: 2rem;
+  color: $white;
 
   @include mobile {
-    .menu-toggle {
-      display: block;
-    }
+    display: block;
   }
+}
 
-  .nav-menu {
-    transition: all 0.3s ease;
+.nav-menu {
+  transition: all 0.3s ease;
 
-    @include mobile {
-      position: fixed;
-      top: 80px;
-      left: -100%;
-      width: 80%;
-      height: calc(100vh - 80px);
-      background: linear-gradient(to right, $primary-color, $secondary-color);
+  @include mobile {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+    flex-direction: column;
+    z-index: 999;
+
+    &.active {
+      left: 0;
+    }
+
+    ul {
       flex-direction: column;
-      z-index: 999;
+      width: 100%;
+      margin: 0;
 
-      &.active {
-        left: 0;
-      }
+      li {
+        margin: 1.5rem 0;
+        text-align: center;
 
-      ul {
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-
-        li {
-          margin: 1.5rem 0;
-          text-align: center;
-
-          a {
-            color: $white;
-            font-size: 1.8rem;
-          }
+        a {
+          color: $white;
+          font-size: 1.8rem;
         }
       }
+    }
 
-      .logo img {
-        height: 6rem;
-      }
+    .logo img {
+      height: 6rem;
     }
   }
 }
